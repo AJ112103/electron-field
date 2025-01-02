@@ -7,21 +7,20 @@ B = 1.0           # Magnetic field strength (Tesla)
 v = 1e6           # Initial speed of the particle (m/s)
 theta = np.pi / 4 # Angle between velocity and magnetic field (radians)
 
-num_points = 1000     # Number of points for the plot
-time_end = 2e-7       # Total simulation time (seconds)
-t = np.linspace(0, time_end, num_points)  # Time array
+num_points = 1000
+time_end = 2e-7
+t = np.linspace(0, time_end, num_points)
 
-v_parallel = v * np.sin(theta)  # Parallel to B
-v_perpendicular = v * np.cos(theta)  # Perpendicular to B
+v_parallel = v * np.sin(theta)
+v_perpendicular = v * np.cos(theta)
 
-omega = q * B / m  # Angular frequency (rad/s)
+omega = q * B / m
 
-# Radius of the circular motion
 radius = m * v_perpendicular / (q * B)
 
-x = radius * np.cos(omega * t)       # x-coordinate
-z = radius * np.sin(omega * t)       # z-coordinate
-y = v_parallel * t                   # y-coordinate (linear motion)
+x = radius * np.cos(omega * t)       
+z = radius * np.sin(omega * t)       
+y = v_parallel * t
 
 fig = plt.figure(figsize=(10, 6))
 ax = plt.axes(projection='3d')
